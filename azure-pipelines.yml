@@ -12,8 +12,9 @@ steps:
   inputs:
     SourceFolder: '$(System.DefaultWorkingDirectory)'
     Contents: |
-        '**'
-        !**\.git\**
+        **
+        !.git/**
+        !*.yml
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
 - script:  |
