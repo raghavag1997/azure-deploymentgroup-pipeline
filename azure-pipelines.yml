@@ -16,6 +16,14 @@ steps:
         !.git/**
         !*.yml
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
+  displayName: 'Copy Source File to Staging Directory'
 
 - script:  |
    ls -la
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
+  displayName: 'Pubish Staging Directory Contents into artificats'
